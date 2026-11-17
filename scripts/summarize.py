@@ -19,6 +19,15 @@ def median(values):
     return statistics.median(values) if values else None
 
 
+def succeeded(row):
+    """Claude Code rows carry `http`, OpenCode rows carry `returncode`."""
+    if "http" in row:
+        return row["http"] == 200
+    if "returncode" in row:
+        return row["returncode"] == 0
+    return True
+
+
 def main():
     path = sys.argv[1] if len(sys.argv) > 1 else "results/matrix.jsonl"
     rows = [json.loads(line) for line in open(path, encoding="utf-8") if line.strip()]
@@ -32,10 +41,10 @@ def main():
     for (model, effort), group in groups.items():
         usable = [
             r for r in group
-            if r["http"] == 200 and r["stop_reason"] != "max_tokens" and r["error"] is None
+            if succeeded(r) and r.get("stop_reason") != "max_tokens" and r["error"] is None
         ]
-        truncated = sum(1 for r in group if r["stop_reason"] == "max_tokens")
-        failed = sum(1 for r in group if r["http"] != 200 or r["error"])
+        truncated = sum(1 for r in group if r.get("stop_reason") == "max_tokens")
+        failed = sum(1 for r in group if not succeeded(r) or r["error"])
         think = median([r["thinking_tokens"] or 0 for r in usable])
         think_chars = median([r.get("thinking_chars") or 0 for r in usable])
         output = median([r["output_tokens"] or 0 for r in usable])

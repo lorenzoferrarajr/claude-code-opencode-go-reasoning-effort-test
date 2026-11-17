@@ -1,6 +1,6 @@
 PY ?= python3
 
-.PHONY: all models wire matrix table powered compare xhigh clean
+.PHONY: all models wire matrix table powered compare xhigh wire-opencode matrix-opencode clean
 
 # Everything: advertised metadata, the wire capture, the exploratory matrix, its table.
 all: models wire matrix table
@@ -29,6 +29,19 @@ powered:
 		--out results/matrix-low-vs-max.jsonl
 	$(PY) scripts/summarize.py results/matrix-low-vs-max.jsonl
 	$(PY) scripts/compare.py low max results/matrix-low-vs-max.jsonl
+
+# Same models, same gateway, but driven by OpenCode instead of Claude Code.
+wire-opencode:
+	$(PY) scripts/capture_wire_opencode.py
+
+matrix-opencode:
+	rm -f results/matrix-opencode.jsonl
+	$(PY) scripts/opencode_matrix.py --trials 30
+	$(PY) scripts/summarize.py results/matrix-opencode.jsonl
+
+# Matched pairs from both harnesses. Needs the files above.
+compare:
+	$(PY) scripts/compare_harnesses.py
 
 # Is xhigh its own level or a synonym for max? pro only.
 xhigh:

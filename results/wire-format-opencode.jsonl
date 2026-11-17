@@ -1,0 +1,5 @@
+{"error": null, "model": "deepseek-v4-pro", "request": {"max_completion_tokens": 256000, "model": "deepseek-v4-pro", "path": "/chat/completions", "reasoning_effort": "high", "stream": true}, "requested_variant": "high"}
+{"error": null, "model": "deepseek-v4-pro", "request": {"max_completion_tokens": 256000, "model": "deepseek-v4-pro", "path": "/chat/completions", "reasoning_effort": "max", "stream": true}, "requested_variant": "max"}
+{"error": null, "model": "deepseek-v4.1-flash", "request": {"max_completion_tokens": 256000, "model": "deepseek-v4.1-flash", "path": "/chat/completions", "reasoning_effort": "low", "stream": true}, "requested_variant": "low"}
+{"error": null, "model": "deepseek-v4.1-flash", "request": {"max_completion_tokens": 256000, "model": "deepseek-v4.1-flash", "path": "/chat/completions", "reasoning_effort": "high", "stream": true}, "requested_variant": "high"}
+{"error": null, "model": "deepseek-v4.1-flash", "request": {"max_completion_tokens": 256000, "model": "deepseek-v4.1-flash", "path": "/chat/completions", "reasoning_effort": "max", "stream": true}, "requested_variant": "max"}

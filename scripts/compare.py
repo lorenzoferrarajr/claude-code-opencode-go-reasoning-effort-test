@@ -19,9 +19,16 @@ PERMUTATIONS = 10000
 
 
 def usable(rows):
+    def ok(r):
+        if "http" in r:
+            return r["http"] == 200
+        if "returncode" in r:
+            return r["returncode"] == 0
+        return True
+
     return [
         r["thinking_tokens"] or 0 for r in rows
-        if r["http"] == 200 and r["stop_reason"] != "max_tokens" and r["error"] is None
+        if ok(r) and r.get("stop_reason") != "max_tokens" and r["error"] is None
     ]
 
 
