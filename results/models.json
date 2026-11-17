@@ -1,0 +1,31 @@
+{
+ "models": [
+  {
+   "id": "deepseek-v4.1-flash",
+   "name": "DeepSeek V4.1 Flash 1017",
+   "context_window": 1000000,
+   "max_output_tokens": 384000,
+   "reasoning_supported": true,
+   "advertised_efforts": [
+    "low",
+    "high",
+    "max"
+   ],
+   "input_price_per_mtok": 0.15,
+   "output_price_per_mtok": 0.6
+  },
+  {
+   "id": "deepseek-v4-pro",
+   "name": "DeepSeek V4 Pro",
+   "context_window": 1000000,
+   "max_output_tokens": 384000,
+   "reasoning_supported": true,
+   "advertised_efforts": [
+    "high",
+    "max"
+   ],
+   "input_price_per_mtok": 0.66,
+   "output_price_per_mtok": 1.98
+  }
+ ]
+}

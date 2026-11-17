@@ -1,0 +1,5 @@
+{"request": {"max_tokens": 32000, "model": "deepseek-v4-pro", "output_config": {"effort": "low"}, "thinking": {"display": "omitted", "type": "adaptive"}}, "requested_effort": "low"}
+{"request": {"max_tokens": 32000, "model": "deepseek-v4-pro", "output_config": {"effort": "medium"}, "thinking": {"display": "omitted", "type": "adaptive"}}, "requested_effort": "medium"}
+{"request": {"max_tokens": 32000, "model": "deepseek-v4-pro", "output_config": {"effort": "high"}, "thinking": {"display": "omitted", "type": "adaptive"}}, "requested_effort": "high"}
+{"request": {"max_tokens": 32000, "model": "deepseek-v4-pro", "output_config": {"effort": "xhigh"}, "thinking": {"display": "omitted", "type": "adaptive"}}, "requested_effort": "xhigh"}
+{"request": {"max_tokens": 32000, "model": "deepseek-v4-pro", "output_config": {"effort": "max"}, "thinking": {"display": "omitted", "type": "adaptive"}}, "requested_effort": "max"}
